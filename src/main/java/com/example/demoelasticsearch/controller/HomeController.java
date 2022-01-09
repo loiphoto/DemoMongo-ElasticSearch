@@ -19,19 +19,25 @@ import java.util.Optional;
 @AllArgsConstructor
 public class HomeController {
 
-    private StudentServiceImpl userService;
+    private StudentServiceImpl studentService;
 
     private StudentRepositoryImpl studentRepository;
 
     @GetMapping("/elastic")
     public Optional<Student> find() {
-        Optional<Student> student = userService.find();
+        Optional<Student> student = studentService.find();
         return student;
+    }
+
+    @GetMapping("/elasticAll")
+    public Iterable<Student> findAll() {
+        Iterable<Student> all = studentService.findALL();
+        return all;
     }
 
     @PostMapping("/elastic")
     public Student insert() {
-        Student insert = userService.insert();
+        Student insert = studentService.insert();
         return insert;
     }
 
@@ -43,10 +49,17 @@ public class HomeController {
     }
 
     @GetMapping("/mongo/students")
-    public List<Student>  findAllMongodb() {
+    public List<Student> findAllMongodb() {
         System.out.println("Find all student mongo");
         List<Student> studentList = studentRepository.findAll();
         return studentList;
+    }
+
+    @GetMapping("/move_data")
+    public ResponseEntity move() {
+        System.out.println("Move data");
+        studentService.moveData();
+        return ResponseEntity.ok().body("Chuyển thành công");
     }
 
 }
