@@ -81,7 +81,6 @@ public class StudentRepositoryImpl extends BaseRepository implements StudentRepo
         student.setChemistryScore((float) objBasic.getDouble(CHEMISTRY_SCORE));
         return student;
     }
-
 //    @Override
 //    public int count() {
 //        int count = getCollection().find().count();
