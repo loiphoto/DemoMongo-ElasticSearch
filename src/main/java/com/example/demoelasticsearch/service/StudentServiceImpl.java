@@ -17,7 +17,10 @@ public class StudentServiceImpl {
         Student student = new Student();
         student.setStudentId("1");
         student.setName("Loi");
-        student.setAge(20);
+        student.setClassName("A");
+        student.setMathScore(7.5F);
+        student.setPhysicScore(8F);
+        student.setChemistryScore(8.5F);
         Student save = studentRepository.save(student);
         return save;
     }

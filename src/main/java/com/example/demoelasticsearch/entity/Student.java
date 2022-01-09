@@ -17,7 +17,16 @@ public class Student {
     @Field(type = FieldType.Text, name = "name")
     private String name;
 
-    @Field(type = FieldType.Integer, name = "age")
-    private Integer age;
+    @Field(type = FieldType.Text, name = "class")
+    private String className;
+
+    @Field(type = FieldType.Float, name = "math_score")
+    private Float mathScore;
+
+    @Field(type = FieldType.Float, name = "physic_score")
+    private Float physicScore;
+
+    @Field(type = FieldType.Float, name = "chemistry_score")
+    private Float chemistryScore;
 
 }
