@@ -56,6 +56,8 @@ public class StudentServiceImpl {
         Optional<Student> byId = studentRepositoryElasticsearch.findById("61dae9b7f89ce41bb0028893");
         System.out.println(byId);
         studentRepositoryElasticsearch.deleteById("61dae9b7f89ce41bb0028893");
+        studentRepositoryElasticsearch.deleteAll();
+
     }
 
     public void moveData(){
