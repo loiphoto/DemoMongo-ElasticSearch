@@ -1,12 +1,9 @@
-#
-#application:
-#  database:
-#    mongodb:
-#      uri: mongodb://localhost:27017/admin
-#  elasticsearch:
-#    host: localhost
-#    port: 9300
-#
+
+application:
+  database:
+    mongodb:
+      uri: mongodb://localhost:27017/admin
+
 server:
   port: 8081
 

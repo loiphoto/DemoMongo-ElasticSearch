@@ -1,4 +1,4 @@
-package com.example.demoelasticsearch.repository.base;
+package com.example.demoelasticsearch.repository.elasticsearch.base;
 
 import com.example.demoelasticsearch.entity.Student;
 import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
