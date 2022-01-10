@@ -3,14 +3,15 @@ package com.example.demoelasticsearch.controller;
 
 import com.example.demoelasticsearch.entity.Student;
 import com.example.demoelasticsearch.model.request.StudentRequest;
-import com.example.demoelasticsearch.repository.mongodb.impl.StudentRepositoryImpl;
+import com.example.demoelasticsearch.model.response.TotalScoreResponse;
 import com.example.demoelasticsearch.service.StudentServiceImpl;
 import lombok.AllArgsConstructor;
+import org.elasticsearch.action.search.SearchResponse;
+import org.springframework.data.elasticsearch.core.SearchHit;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @AllArgsConstructor
@@ -18,27 +19,16 @@ public class HomeController {
 
     private StudentServiceImpl studentService;
 
-    @GetMapping("/elastic")
-    public Optional<Student> find() {
-        Optional<Student> student = studentService.find();
-        return student;
-    }
 
-    @GetMapping("/elasticAll")
+    @GetMapping("/elastic/students")
     public Iterable<Student> findAll() {
         Iterable<Student> all = studentService.findALL();
         return all;
     }
 
-    @DeleteMapping("/elasticAll")
+    @DeleteMapping("/elastic/students")
     public void deleteAll() {
         studentService.deleteAll();
-    }
-
-    @PostMapping("/elastic")
-    public Student insert() {
-        Student insert = studentService.insert();
-        return insert;
     }
 
     @PostMapping("/mongo/students")
@@ -61,5 +51,37 @@ public class HomeController {
         studentService.moveData();
         return ResponseEntity.ok().body("Chuyển thành công");
     }
+
+    @GetMapping("/sum")
+    public SearchHit<TotalScoreResponse> sum() {
+        System.out.println("Sum Score");
+        SearchHit<TotalScoreResponse> totalScoreResponses = studentService.sumScore();
+        return totalScoreResponses;
+    }
+
+//    @GetMapping("/findOne")
+//    public SearchHit<Student> findOne() {
+//        System.out.println("Fine one");
+//        SearchHit<Student> findOne = studentService.findOne();
+//        return findOne;
+//    }
+
+    @PostMapping("/totalScores")
+    public SearchResponse totalScore() {
+        SearchResponse searchResponse = studentService.totalScore();
+        return searchResponse;
+    }
+
+    @PostMapping("/averageScores")
+    public SearchResponse averageScore() {
+        SearchResponse searchResponse = studentService.averageScore();
+        return searchResponse;
+    }
+
+//    @PostMapping("/ranks")
+//    public SearchResponse ranks() {
+//        SearchResponse searchResponse = studentService.ranking();
+//        return searchResponse;
+//    }
 
 }
