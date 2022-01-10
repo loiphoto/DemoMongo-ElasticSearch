@@ -19,7 +19,6 @@ public class HomeController {
 
     private StudentServiceImpl studentService;
 
-
     @GetMapping("/elastic/students")
     public Iterable<Student> findAll() {
         Iterable<Student> all = studentService.findALL();
@@ -52,12 +51,12 @@ public class HomeController {
         return ResponseEntity.ok().body("Chuyển thành công");
     }
 
-    @GetMapping("/sum")
-    public SearchHit<TotalScoreResponse> sum() {
-        System.out.println("Sum Score");
-        SearchHit<TotalScoreResponse> totalScoreResponses = studentService.sumScore();
-        return totalScoreResponses;
-    }
+//    @GetMapping("/sum")
+//    public SearchHit<TotalScoreResponse> sum() {
+//        System.out.println("Sum Score");
+//        SearchHit<TotalScoreResponse> totalScoreResponses = studentService.sumScore();
+//        return totalScoreResponses;
+//    }
 
 //    @GetMapping("/findOne")
 //    public SearchHit<Student> findOne() {
