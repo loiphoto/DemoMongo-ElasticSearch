@@ -81,34 +81,5 @@ public class StudentRepositoryImpl extends BaseRepository implements StudentRepo
         student.setChemistryScore((float) objBasic.getDouble(CHEMISTRY_SCORE));
         return student;
     }
-//    @Override
-//    public int count() {
-//        int count = getCollection().find().count();
-//        return count;
-//    }
-//
-//    @Override
-//    public List<User> find() {
-//        List<User> result = new ArrayList<>();
-//        int count = getCollection().find().count();
-//        System.out.println(count);
-//        DBCursor dbObjects = getCollection().find();
-//        while (dbObjects.hasNext()){
-//            User user = castFromDbObject(dbObjects.next());
-//            result.add(user);
-//        }
-//        return result;
-//    }
-//
-//    private User castFromDbObject(DBObject object){
-//        BasicDBObject objBasic = (BasicDBObject) object;
-//        User user = new User();
-//        user.setUserId(objBasic.getObjectId(ID).toString());
-//        user.setName(objBasic.getString("name").toString());
-//        String date = objBasic.getString("birth_day");
-//        LocalDate localDate = LocalDate.parse(date);
-//        user.setBirthDay(localDate);
-//        return user;
-//    }
 }
 

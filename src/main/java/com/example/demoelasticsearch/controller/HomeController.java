@@ -32,21 +32,18 @@ public class HomeController {
 
     @PostMapping("/mongo/students")
     public ResponseEntity insertMongodb(@RequestBody StudentRequest student) {
-        System.out.println("Insertmongo");
         studentService.insertMongo(student);
         return ResponseEntity.ok().body("Thêm thành công");
     }
 
     @GetMapping("/mongo/students")
     public List<Student> findAllMongodb() {
-        System.out.println("Find all student mongo");
         List<Student> studentList = studentService.findAllMongo();
         return studentList;
     }
 
     @GetMapping("/move_data")
     public ResponseEntity move() {
-        System.out.println("Move data");
         studentService.moveData();
         return ResponseEntity.ok().body("Chuyển thành công");
     }

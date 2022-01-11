@@ -9,5 +9,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class AverageScoreResponse {
     private String name;
+
     private Float avgScore;
 }
