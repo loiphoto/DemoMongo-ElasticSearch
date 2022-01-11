@@ -1,6 +1,7 @@
 package com.example.demoelasticsearch.controller;
 
 
+import com.example.demoelasticsearch.constant.MessageResponse;
 import com.example.demoelasticsearch.entity.Student;
 import com.example.demoelasticsearch.model.request.StudentRequest;
 import com.example.demoelasticsearch.model.response.TotalScoreResponse;
@@ -33,7 +34,7 @@ public class HomeController {
     @PostMapping("/mongo/students")
     public ResponseEntity insertMongodb(@RequestBody StudentRequest student) {
         studentService.insertMongo(student);
-        return ResponseEntity.ok().body("Thêm thành công");
+        return ResponseEntity.ok().body(MessageResponse.SUSSCESS_ADD);
     }
 
     @GetMapping("/mongo/students")
@@ -45,22 +46,8 @@ public class HomeController {
     @GetMapping("/move_data")
     public ResponseEntity move() {
         studentService.moveData();
-        return ResponseEntity.ok().body("Chuyển thành công");
+        return ResponseEntity.ok().body(MessageResponse.SUSSCESS_ADD);
     }
-
-//    @GetMapping("/sum")
-//    public SearchHit<TotalScoreResponse> sum() {
-//        System.out.println("Sum Score");
-//        SearchHit<TotalScoreResponse> totalScoreResponses = studentService.sumScore();
-//        return totalScoreResponses;
-//    }
-
-//    @GetMapping("/findOne")
-//    public SearchHit<Student> findOne() {
-//        System.out.println("Fine one");
-//        SearchHit<Student> findOne = studentService.findOne();
-//        return findOne;
-//    }
 
     @PostMapping("/totalScores")
     public SearchResponse totalScore() {
