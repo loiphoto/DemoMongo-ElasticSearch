@@ -1,5 +1,6 @@
 package com.example.demoelasticsearch.repository.mongodb;
 
+import com.example.demoelasticsearch.constant.MongoDatabase;
 import com.mongodb.DB;
 import com.mongodb.MongoClient;
 import lombok.AllArgsConstructor;
@@ -21,6 +22,6 @@ public class MongoManager {
 //        while (iterator.hasNext()){
 //            System.out.println(iterator.next());
 //        }
-        return mongoClient.getDB("persondb");
+        return mongoClient.getDB(MongoDatabase.PERSONDB);
     }
 }
